@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PopX App</title>
+  <script src="https://cdn.jsdelivr.net/npm/react@18.2.0/umd/react.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/react-dom@18.2.0/umd/react-dom.development.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@babel/standalone@7.22.5/babel.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+  <div id="root" class="flex justify-center items-center h-screen bg-gray-100"></div>
+
+  <script type="text/babel">
+    const { useState } = React;
+
+    const WelcomePage = ({ onCreateAccount, onLogin }) => (
+      <div class="w-80 p-6 bg-white rounded-lg shadow-md">
+        <h1 class="text-xl font-bold mb-2">Welcome to PopX</h1>
+        <p class="text-gray-600 mb-6">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        </p>
+        <button
+          onClick={onCreateAccount}
+          class="w-full bg-purple-600 text-white py-2 rounded-md mb-3 hover:bg-purple-700"
+        >
+          Create Account
+        </button>
+        <button
+          onClick={onLogin}
+          class="w-full bg-purple-200 text-purple-800 py-2 rounded-md hover:bg-purple-300"
+        >
+          Already Registered? Login
+        </button>
+      </div>
+    );
+
+    const CreateAccountPage = ({ onSubmit }) => (
+      <div class="w-80 p-6 bg-white rounded-lg shadow-md">
+        <h1 class="text-xl font-bold mb-2">Create your PopX account</h1>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">
+              Full Name<span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Marry Doe"
+              class="w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">
+              Phone number<span class="text-red-500">*</span>
+            </label>
+            <input
+              type="text"
+              placeholder="Marry Doe"
+              class="w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">
+              Email address<span class="text-red-500">*</span>
+            </label>
+            <input
+              type="email"
+              placeholder="Marry Doe"
+              class="w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">
+              Password<span class="text-red-500">*</span>
+            </label>
+            <input
+              type="password"
+              placeholder="Marry Doe"
+              class="w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">
+              Company name
+            </label>
+            <input
+              type="text"
+              placeholder="Marry Doe"
+              class="w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">
+              Are you an Agency?<span class="text-red-500">*</span>
+            </label>
+            <div class="flex space-x-4">
+              <label class="flex items-center">
+                <input
+                  type="radio"
+                  name="agency"
+                  value="yes"
+                  class="text-purple-600 mr-2"
+                  defaultChecked
+                />
+                Yes
+              </label>
+              <label class="flex items-center">
+                <input
+                  type="radio"
+                  name="agency"
+                  value="no"
+                  class="text-purple-600 mr-2"
+                />
+                No
+              </label>
+            </div>
+          </div>
+        </div>
+        <button
+          onClick={onSubmit}
+          class="w-full bg-purple-600 text-white py-2 rounded-md mt-6 hover:bg-purple-700"
+        >
+          Create Account
+        </button>
+      </div>
+    );
+
+    const SignInPage = ({ onSubmit }) => (
+      <div class="w-80 p-6 bg-white rounded-lg shadow-md">
+        <h1 class="text-xl font-bold mb-2">SignIn to your PopX account</h1>
+        <p class="text-gray-600 mb-6">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        </p>
+        <div class="space-y-4">
+          <div>
+            <label class="block text-sm font-medium text-gray-700">
+              Email Address
+            </label>
+            <input
+              type="email"
+              placeholder="Enter email address"
+              class="w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+          <div>
+            <label class="block text-sm font-medium text-gray-700">
+              Password
+            </label>
+            <input
+              type="password"
+              placeholder="Enter password"
+              class="w-full p-2 border border-gray-300 rounded-md"
+            />
+          </div>
+        </div>
+        <button
+          onClick={onSubmit}
+          class="w-full bg-gray-300 text-gray-700 py-2 rounded-md mt-6 hover:bg-gray-400"
+        >
+          Login
+        </button>
+      </div>
+    );
+
+    const AccountSettingsPage = () => (
+      <div class="w-80 p-6 bg-white rounded-lg shadow-md">
+        <h1 class="text-xl font-bold mb-4">Account Settings</h1>
+        <div class="flex items-center mb-4">
+          <div class="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+          <div>
+            <h2 class="text-lg font-semibold">Marry Doe</h2>
+            <p class="text-gray-600">Marry@gmail.com</p>
+          </div>
+        </div>
+        <p class="text-gray-600">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,. Sed diam nonummy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam
+        </p>
+      </div>
+    );
+
+    const App = () => {
+      const [currentPage, setCurrentPage] = useState('welcome');
+
+      const handleCreateAccount = () => setCurrentPage('create');
+      const handleLogin = () => setCurrentPage('signin');
+      const handleSubmit = () => setCurrentPage('settings');
+
+      return (
+        <div>
+          {currentPage === 'welcome' && (
+            <WelcomePage
+              onCreateAccount={handleCreateAccount}
+              onLogin={handleLogin}
+            />
+          )}
+          {currentPage === 'create' && (
+            <CreateAccountPage onSubmit={handleSubmit} />
+          )}
+          {currentPage === 'signin' && (
+            <SignInPage onSubmit={handleSubmit} />
+          )}
+          {currentPage === 'settings' && <AccountSettingsPage />}
+        </div>
+      );
+    };
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+</body>
+</html>
